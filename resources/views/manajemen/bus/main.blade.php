@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('title')
-    Manajemen Data Bis
+    Manajemen Data Bus
 @endsection
 
 @section('head')
@@ -20,10 +20,10 @@
                     <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
                         <div class="flex-grow-1">
                             <h1 class="h3 fw-bold mb-2">
-                                Manajemen Data Bis
+                                Manajemen Data Bus
                             </h1>
                             <h2 class="fs-base lh-base fw-medium text-muted mb-0">
-                                Halaman untuk manajemen data armada bis sekolah.
+                                Halaman untuk manajemen data armada bus sekolah.
                             </h2>
                         </div>
                         <nav class="flex-shrink-0 mt-3 mt-sm-0 ms-sm-3" aria-label="breadcrumb">
@@ -32,7 +32,7 @@
                                     <a href="{{ route('dashboard') }}" class="link-fx">Dashboard</a>
                                 </li>
                                 <li class="breadcrumb-item" aria-current="page">
-                                    Manajemen Data Bis
+                                    Manajemen Data Bus
                                 </li>
                             </ol>
                         </nav>
@@ -43,7 +43,7 @@
                 <div class="block block-rounded">
                     <div class="block-header block-header-default">
                         <h3 class="block-title">
-                            List Data Bis
+                            List Data Bus
                         </h3>
                         <div class="block-options">
                             <a role="button" id="btnTambahData" class="btn text-primary btn-block-option" data-bs-toggle="modal" data-bs-target="#modal"><i class="fa fa-plus"></i> Tambah Data</a>

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Bis;
+use App\Models\Bus;
 use Illuminate\Database\Seeder;
 
-class BisSeeder extends Seeder
+class BusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class BisSeeder extends Seeder
      */
     public function run()
     {
-        Bis::create([
+        Bus::create([
             "plat_nomor" => "AE7032BP",
             "rute_awal" => "Terminal Purbaya",
             "rute_akhir" => "Te'an",

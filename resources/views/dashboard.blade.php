@@ -55,7 +55,7 @@
                 <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
                     <div class="flex-grow-1 mb-1 mb-md-0">
                         <h2 class="h3 fw-bold mb-4">
-                        Monitoring Bis
+                        Monitoring Bus
                         </h2>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-2">
                     <div class="flex-grow-1 mb-1 mb-md-0">
                         <h2 class="h3 fw-bold mb-2">
-                        Informasi Bis
+                        Informasi Bus
                         </h2>
                     </div>
                 </div>

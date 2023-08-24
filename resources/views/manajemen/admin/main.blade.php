@@ -23,7 +23,7 @@
                                 Manajemen Data Admin
                             </h1>
                             <h2 class="fs-base lh-base fw-medium text-muted mb-0">
-                                Halaman untuk manajemen data admin yang mengelola program bis sekolah.
+                                Halaman untuk manajemen data admin yang mengelola program bus sekolah.
                             </h2>
                         </div>
                         <nav class="flex-shrink-0 mt-3 mt-sm-0 ms-sm-3" aria-label="breadcrumb">

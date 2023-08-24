@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BisController;
+use App\Http\Controllers\BusController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PelajarController;
@@ -49,12 +49,12 @@ Route::middleware('auth')->group(function() { // BACK END
                 Route::post('show/modal', [AdminController::class, 'viewModal'])->name('admin.modal');
             });
             Route::prefix('bus')->middleware('admin')->group(function() { // URL BUS
-                Route::get('/', [BisController::class, 'index'])->name('bus');
-                Route::post('input', [BisController::class, 'store'])->name('bus.store');
-                Route::put('{plat_nomor}/edit', [BisController::class, 'update'])->name('bus.update');
-                Route::delete('{plat_nomor}/hapus', [BisController::class, 'destroy'])->name('bus.hapus');
-                Route::post('check/platNomor', [BisController::class, 'cekPlatNomor'])->name('bus.platNomor');
-                Route::post('show/modal', [BisController::class, 'viewModal'])->name('bus.modal');
+                Route::get('/', [BusController::class, 'index'])->name('bus');
+                Route::post('input', [BusController::class, 'store'])->name('bus.store');
+                Route::put('{plat_nomor}/edit', [BusController::class, 'update'])->name('bus.update');
+                Route::delete('{plat_nomor}/hapus', [BusController::class, 'destroy'])->name('bus.hapus');
+                Route::post('check/platNomor', [BusController::class, 'cekPlatNomor'])->name('bus.platNomor');
+                Route::post('show/modal', [BusController::class, 'viewModal'])->name('bus.modal');
             });
             Route::prefix('sekolah')->middleware('admin')->group(function() {
                 Route::get('/', [SekolahController::class, 'index'])->name('sekolah');

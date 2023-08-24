@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bis extends Model
+class Bus extends Model
 {
     use HasFactory;
 
-    protected $table = 'bis';
+    protected $table = 'bus';
 
     protected $fillable = [
         'plat_nomor',

@@ -22,9 +22,9 @@ $(document).ready(function() {
 });
 
 function initTooltip() {
-    $('#btnTambahData').tooltip({title: 'Tambah Data Bis'});
-    $('.btnEditData').tooltip({title: 'Ubah Data Bis'});
-    $('.delete-link').tooltip({title: 'Hapus Data Bis'});
+    $('#btnTambahData').tooltip({title: 'Tambah Data Bus'});
+    $('.btnEditData').tooltip({title: 'Ubah Data Bus'});
+    $('.delete-link').tooltip({title: 'Hapus Data Bus'});
 }
 
 // Action untuk Sweetalert
@@ -33,7 +33,7 @@ $(document).on('click', '.delete-link', function(e) {
     var platNomor = $(this).attr('id').split('-')[2];
     Swal.fire({
         title: 'Konfirmasi',
-        html: 'Anda yakin ingin menghapus data bis <b>' + platNomor.replace(/(\d+)/g, ' $1 ') + '</b> ?',
+        html: 'Anda yakin ingin menghapus data Bus <b>' + platNomor.replace(/(\d+)/g, ' $1 ') + '</b> ?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

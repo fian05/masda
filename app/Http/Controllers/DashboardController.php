@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Bis;
+use App\Models\Bus;
 use App\Models\Admin;
 use App\Models\Pelajar;
 use App\Models\Monitoring;
 use Illuminate\Http\Request;
-use App\Models\MonitoringBis;
+use App\Models\MonitoringBus;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
     public function index() {
-        $buses = Bis::all();
+        $buses = Bus::all();
         return view('dashboard', compact('buses'));
     }
 
@@ -67,10 +67,10 @@ class DashboardController extends Controller
 
     public function viewModal(Request $request) { // MODAL
         if($request->platNomor) {
-            $bus = Bis::where('plat_nomor', $request->platNomor)->first();
+            $bus = Bus::where('plat_nomor', $request->platNomor)->first();
             if($bus) {
                 $today = Carbon::today()->format('Y-m-d');
-                $monitoringBus = MonitoringBis::where('plat_nomor', $bus->plat_nomor)->where('created_at', '>', $today)->latest()->first();
+                $monitoringBus = MonitoringBus::where('plat_nomor', $bus->plat_nomor)->where('created_at', '>', $today)->latest()->first();
                 if($monitoringBus) {
                     $jmlPenumpang = $bus->jumlah_kursi - $monitoringBus->sisa_pnp;
                     $timestamp = strtotime($monitoringBus->updated_at);
@@ -120,7 +120,7 @@ class DashboardController extends Controller
                                         <td style="vertical-align: top;"><a href="https://maps.google.com/maps?q='.$monitoringBus->latitude.','.$monitoringBus->longitude.'" target="_blank">Lihat lokasi di Google Maps</a></td>
                                     </tr>
                                 </table><hr>
-                                <h1 class="modal-title fs-5">List Pelajar di Dalam Bis</h1>
+                                <h1 class="modal-title fs-5">List Pelajar di Dalam Bus</h1>
                                 <div class="table-responsive mb-3">
                                     <table class="table table-bordered table-striped table-vcenter" id="pelajar-table">
                                         <thead>

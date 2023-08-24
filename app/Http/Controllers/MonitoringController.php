@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use App\Models\Bis;
+use App\Models\Bus;
 use App\Models\Pelajar;
 use App\Models\Monitoring;
 use Illuminate\Http\Request;
-use App\Models\MonitoringBis;
+use App\Models\MonitoringBus;
 
 class MonitoringController extends Controller
 {
@@ -19,16 +19,16 @@ class MonitoringController extends Controller
 
     public function mapsView()
     {
-        $buses = Bis::all();
+        $buses = Bus::all();
         return view('monitoring.maps', compact('buses'));
     }
 
     public function mapsUpdate() {
         $markers = [];
         $today = Carbon::today()->format('Y-m-d');
-        $latestBusData = MonitoringBis::where('created_at', '>', $today)->latest()->get();
+        $latestBusData = MonitoringBus::where('created_at', '>', $today)->latest()->get();
         foreach ($latestBusData as $busData) {
-            $bus = Bis::where('plat_nomor', $busData->plat_nomor)->first();
+            $bus = Bus::where('plat_nomor', $busData->plat_nomor)->first();
             $jmlPenumpang = $bus->jumlah_kursi - $busData->sisa_pnp;
             $markers[] = [
                 'plat_nomor' => $busData->plat_nomor,
@@ -56,9 +56,9 @@ class MonitoringController extends Controller
             $pelajar = Pelajar::findOrFail($request->nisn);
             if($monitoring->status == "in") {
                 $posisi = "Sedang menaiki bus";
-                $getBus = Bis::where('plat_nomor', $monitoring->plat_nomor)->first();
+                $getBus = Bus::where('plat_nomor', $monitoring->plat_nomor)->first();
                 if($getBus) {
-                    $getMonitoringBus = MonitoringBis::where('plat_nomor', $monitoring->plat_nomor)->where('created_at', '>', $today)->latest()->first();
+                    $getMonitoringBus = MonitoringBus::where('plat_nomor', $monitoring->plat_nomor)->where('created_at', '>', $today)->latest()->first();
                     if($getMonitoringBus) {
                         $lat = $getMonitoringBus->latitude;
                         $lng = $getMonitoringBus->longitude;
@@ -85,7 +85,7 @@ class MonitoringController extends Controller
                 }
             } else if($monitoring->status == "out") {
                 $posisi = "Sudah turun dari bus";
-                $getBus = Bis::where('plat_nomor', $monitoring->plat_nomor)->first();
+                $getBus = Bus::where('plat_nomor', $monitoring->plat_nomor)->first();
                 if($getBus) {
                     return response()->json([
                         'status' => 'success',
@@ -115,7 +115,7 @@ class MonitoringController extends Controller
         $iLatitude = $request->lat;
         $iLongitude = $request->lng;
 
-        $bus = Bis::where('plat_nomor', $iPlat_nomor)->first();
+        $bus = Bus::where('plat_nomor', $iPlat_nomor)->first();
         if(!$bus) {
             return response()->json([
                 'success' => false,
@@ -169,9 +169,9 @@ class MonitoringController extends Controller
                         $pelajar = Monitoring::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->latest()->get();
                         if($pelajar->count() == 0) { // Belum ada pelajar yang tap kartu hari ini
                             $sisa_pnp = $bus->jumlah_kursi; // Kursi full
-                            $monitoringBus = MonitoringBis::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
+                            $monitoringBus = MonitoringBus::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
                             if(!$monitoringBus) { // Belum ada monitoring bus
-                                $monitoringBus = MonitoringBis::create([
+                                $monitoringBus = MonitoringBus::create([
                                     "plat_nomor" => $iPlat_nomor,
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
@@ -194,9 +194,9 @@ class MonitoringController extends Controller
                                 ->where('created_at', '>', $today)
                                 ->count();
                             $sisa_pnp = $bus->jumlah_kursi - ($in - $out); // Kursi kurang/tetap/tambah, ada yang tap in/out kartu
-                            $monitoringBus = MonitoringBis::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
+                            $monitoringBus = MonitoringBus::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
                             if(!$monitoringBus) { // Belum ada data sama sekali di Monitoring Bus
-                                $monitoringBus = MonitoringBis::create([
+                                $monitoringBus = MonitoringBus::create([
                                     "plat_nomor" => $iPlat_nomor,
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
@@ -226,7 +226,7 @@ class MonitoringController extends Controller
         $iLatitude = $request->lat;
         $iLongitude = $request->lng;
 
-        $bus = Bis::where('plat_nomor', $iPlat_nomor)->first();
+        $bus = Bus::where('plat_nomor', $iPlat_nomor)->first();
         if(!$bus) { // Plat Nomor tidak terdaftar di sistem
             return response()->json([
                 'success' => false,
@@ -245,9 +245,9 @@ class MonitoringController extends Controller
                 $pelajar = Monitoring::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->latest()->get();
                 if($pelajar->count() == 0) { // Belum ada pelajar yang tap kartu hari ini
                     $sisa_pnp = $bus->jumlah_kursi; // Kursi full
-                    $monitoringBus = MonitoringBis::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
+                    $monitoringBus = MonitoringBus::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
                     if(!$monitoringBus) { // Belum ada monitoring bus
-                        $monitoringBus = MonitoringBis::create([
+                        $monitoringBus = MonitoringBus::create([
                             "plat_nomor" => $iPlat_nomor,
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
@@ -270,9 +270,9 @@ class MonitoringController extends Controller
                         ->where('created_at', '>', $today)
                         ->count();
                     $sisa_pnp = $bus->jumlah_kursi - ($in - $out); // Kursi kurang/tetap/tambah, ada yang tap in/out kartu
-                    $monitoringBus = MonitoringBis::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
+                    $monitoringBus = MonitoringBus::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
                     if(!$monitoringBus) { // Belum ada data sama sekali di Monitoring Bus
-                        $monitoringBus = MonitoringBis::create([
+                        $monitoringBus = MonitoringBus::create([
                             "plat_nomor" => $iPlat_nomor,
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,

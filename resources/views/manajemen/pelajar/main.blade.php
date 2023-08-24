@@ -23,7 +23,7 @@
                                 Manajemen Data Pelajar {{ $sekolahs->nama_sekolah }}
                             </h1>
                             <h2 class="fs-base lh-base fw-medium text-muted mb-0">
-                                Halaman untuk manajemen data pelajar <b>{{ $sekolahs->nama_sekolah }}</b> yang terdaftar pada program bis sekolah.
+                                Halaman untuk manajemen data pelajar <b>{{ $sekolahs->nama_sekolah }}</b> yang terdaftar pada program bus sekolah.
                             </h2>
                         </div>
                         <nav class="flex-shrink-0 mt-3 mt-sm-0 ms-sm-3" aria-label="breadcrumb">

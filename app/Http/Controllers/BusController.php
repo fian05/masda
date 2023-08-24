@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bis;
+use App\Models\Bus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
-class BisController extends Controller
+class BusController extends Controller
 {
     public function index() {
-        $buses = Bis::all();
+        $buses = Bus::all();
         return view('manajemen.bus.main', compact('buses'));
     }
 
@@ -28,15 +28,15 @@ class BisController extends Controller
                 'message' => 'Inputan ada yang salah!!',
             ]);
         } else {
-            $result = Bis::where('plat_nomor', $request->bus_platNomor)->exists();
+            $result = Bus::where('plat_nomor', $request->bus_platNomor)->exists();
             if($result) {
                 Session::flash('alert', [
                     'type' => 'error',
                     'title' => 'Input Data Gagal',
-                    'message' => 'Data Bis telah terdaftar!',
+                    'message' => 'Data Bus telah terdaftar!',
                 ]);
             } else {
-                Bis::create([
+                Bus::create([
                     "plat_nomor" => $request->bus_platNomor,
                     "rute_awal" => $request->bus_ruteAwal,
                     "rute_akhir" => $request->bus_ruteAkhir,
@@ -65,15 +65,15 @@ class BisController extends Controller
                 'message' => 'Ada inputan yang salah!!',
             ]);
         } else {
-            $result = Bis::where('plat_nomor', $platNomor)->exists();
+            $result = Bus::where('plat_nomor', $platNomor)->exists();
             if($result) {
                 Session::flash('alert', [
                     'type' => 'error',
                     'title' => 'Edit Data Gagal',
-                    'message' => "Data Bis tidak valid!",
+                    'message' => "Data Bus tidak valid!",
                 ]);
             }
-            $bus = Bis::findOrFail($platNomor);
+            $bus = Bus::findOrFail($platNomor);
             if($bus) {
                 $bus->update([
                     'rute_awal' => $request->bus_ruteAwal,
@@ -89,7 +89,7 @@ class BisController extends Controller
                 Session::flash('alert', [
                     'type' => 'error',
                     'title' => 'Edit Data Gagal',
-                    'message' => "Data Bis tidak valid!",
+                    'message' => "Data Bus tidak valid!",
                 ]);
             }
         }
@@ -97,7 +97,7 @@ class BisController extends Controller
     }
 
     public function destroy($plat_nomor) {
-        $bus = Bis::findOrFail($plat_nomor);
+        $bus = Bus::findOrFail($plat_nomor);
         if($bus) {
             $bus->delete();
             Session::flash('alert', [
@@ -109,14 +109,14 @@ class BisController extends Controller
             Session::flash('alert', [
                 'type' => 'error',
                 'title' => 'Edit Data Gagal',
-                'message' => "Data Bis tidak valid!",
+                'message' => "Data Bus tidak valid!",
             ]);
         }
         return back();
     }
 
     public function cekPlatNomor(Request $request) { // AJAX
-        $result = Bis::where('plat_nomor', $request->platNomor)->exists();
+        $result = Bus::where('plat_nomor', $request->platNomor)->exists();
         if ($result) {
             return response()->json([
                 'status' => 'success',
@@ -131,7 +131,7 @@ class BisController extends Controller
     }
 
     public function viewModal(Request $request) { // MODAL
-        $bus = Bis::where('plat_nomor', $request->platNomor)->first();
+        $bus = Bus::where('plat_nomor', $request->platNomor)->first();
         if($bus) { // Edit
             $modal = '
                 <form id="form" method="POST" action="'.route("bus.update", ['plat_nomor' => $bus->plat_nomor] ).'">
