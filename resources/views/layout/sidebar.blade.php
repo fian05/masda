@@ -1,7 +1,7 @@
 <nav id="sidebar" aria-label="Main Navigation">
     <div class="content-header">
         <a class="fw-semibold text-dual" href="{{ route("dashboard") }}">
-            <span class="smini-hide fs-5 tracking-wider">MAS<span class="fw-normal">Bus</span></span>
+            <span class="smini-hide fs-5 tracking-wider">MAS<span class="fw-normal">DA</span></span>
         </a> {{-- Logo --}}
         <div>
             <a class="d-lg-none btn btn-sm btn-alt-secondary ms-1" data-toggle="layout"
