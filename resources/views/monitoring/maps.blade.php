@@ -43,7 +43,7 @@
     <div id="map"></div>
     <script>
         // Maps
-        var map = L.map('map').setView([-2.8842083,117.9144649], 5); // Indonesia
+        var map = L.map('map').setView([-6.9019617,110.9404542], 7); // Jawa Timur
 
         // Render Maps
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
