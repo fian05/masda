@@ -43,7 +43,7 @@
     <div id="map"></div>
     <script>
         // Maps
-        var map = L.map('map').setView([-7.2816604,112.716688], 11); // Kota Surabaya
+        var map = L.map('map').setView([-2.8842083,117.9144649], 5); // Indonesia
 
         // Render Maps
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
