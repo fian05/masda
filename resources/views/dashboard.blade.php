@@ -107,7 +107,7 @@
 @section('script')
     <script>
         // Maps
-        var map = L.map('map', {scrollWheelZoom: false}).setView([-7.2816604,112.716688], 12.5); // Kota Surabaya
+        var map = L.map('map').setView([-6.9019617,110.9404542], 7); // Jawa Timur
         L.control.fullscreen().addTo(map);
         
         map.on('fullscreenchange', function () {
