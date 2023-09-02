@@ -107,7 +107,7 @@
 @section('script')
     <script>
         // Maps
-        var map = L.map('map').setView([-6.9019617,110.9404542], 7); // Jawa Timur
+        var map = L.map('map', {scrollWheelZoom: false}).setView([-6.9019617,110.9404542], 7); // Jawa Timur
         L.control.fullscreen().addTo(map);
         
         map.on('fullscreenchange', function () {
