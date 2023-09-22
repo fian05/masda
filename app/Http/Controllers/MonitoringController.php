@@ -156,8 +156,8 @@ class MonitoringController extends Controller
                         "status" => $status,
                         "latitude" => $iLatitude,
                         "longitude" => $iLongitude,
-                        "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                        "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                        "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
+                        "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                     ]);
 
                     if(!$monitorings) {
@@ -178,16 +178,16 @@ class MonitoringController extends Controller
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
+                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                                 ]);
                             } else { // Sudah ada monitoring bus
                                 $monitoringBus->update([
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
+                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                                 ]);
                             }
                         } else { // Sudah ada pelajar yang tap kartu hari ini
@@ -207,16 +207,16 @@ class MonitoringController extends Controller
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
+                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                                 ]);
                             } else { // Sudah ada monitoring bus
                                 $monitoringBus->update([
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
+                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                                 ]);
                             }
                         }
@@ -262,16 +262,16 @@ class MonitoringController extends Controller
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
+                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                         ]);
                     } else { // Sudah ada monitoring bus
                         $monitoringBus->update([
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
+                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                         ]);
                     }
                 } else { // Sudah ada pelajar yang tap kartu hari ini
@@ -291,16 +291,16 @@ class MonitoringController extends Controller
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
+                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                         ]);
                     } else {
                         $monitoringBus->update([
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
+                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                         ]);
                     }
                 }
@@ -315,7 +315,7 @@ class MonitoringController extends Controller
 
     public function getNotif(Request $request) {
         // Mengambil notifikasi terbaru dari tabel Monitoring
-        $notification = Monitoring::where("nisn", $request->nisn)->where('created_at', '>', date("Y-m-d", strtotime("8 seconds", strtotime(date("Y-m-d", strtotime("2023-07-21"))))))->latest()->first();
+        $notification = Monitoring::where("nisn", $request->nisn)->where('created_at', '>', date("Y-m-d", strtotime("-8 seconds", strtotime(date("Y-m-d", strtotime("2023-07-21"))))))->latest()->first();
         // Memeriksa apakah ada notifikasi
         if ($notification) {
             return response()->json([
