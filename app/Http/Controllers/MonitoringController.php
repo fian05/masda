@@ -73,7 +73,7 @@ class MonitoringController extends Controller
                             'latitude_tap' => $monitoring->latitude,
                             'longitude_tap' => $monitoring->longitude,
                             'date' => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
-                            'date_bus' => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            'date_bus' => $getMonitoringBus->updated_at,
                             'jml_pnp' => $jmlPenumpang,
                         ]);
                     } else {
@@ -96,7 +96,7 @@ class MonitoringController extends Controller
                         'longitude_bus' => "",
                         'latitude_tap' => $monitoring->latitude,
                         'longitude_tap' => $monitoring->longitude,
-                        'date' => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                        'date' => $monitoring->created_at,
                         'date_bus' => "",
                     ]);
                 }
