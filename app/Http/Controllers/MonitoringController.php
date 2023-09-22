@@ -336,7 +336,7 @@ class MonitoringController extends Controller
     }
 
     public function listNotif(Request $request) {
-        $startDate = date("Y-m-d", strtotime("-7 days", strtotime(date("Y-m-d", strtotime("2023-07-21")))));
+        $startDate = date("Y-m-d", strtotime("8 seconds", strtotime(date("Y-m-d", strtotime("2023-07-21")))));
         $endDate = date("Y-m-d", strtotime("2023-07-21"));
         // Mengambil notifikasi 30 terbaru dan 7 hari terakhir dari tabel Monitoring
         $notifications = Monitoring::where('nisn', $request->nisn)->whereDate('created_at', '>=', $startDate)->whereDate('created_at', '<=', $endDate)->latest()->get();
