@@ -36,7 +36,7 @@ class MonitoringController extends Controller
                 'longitude' => $busData->longitude,
                 'sisa_pnp' => $busData->sisa_pnp,
                 'jml_pnp' => $jmlPenumpang,
-                'date' => $busData->updated_at,
+                'date' => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                 'rute_awal' => $bus->rute_awal,
                 'rute_akhir' => $bus->rute_akhir,
                 'jumlah_kursi' => $bus->jumlah_kursi,
@@ -72,8 +72,8 @@ class MonitoringController extends Controller
                             'longitude_bus' => $lng,
                             'latitude_tap' => $monitoring->latitude,
                             'longitude_tap' => $monitoring->longitude,
-                            'date' => $monitoring->created_at,
-                            'date_bus' => $getMonitoringBus->updated_at,
+                            'date' => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            'date_bus' => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                             'jml_pnp' => $jmlPenumpang,
                         ]);
                     } else {
@@ -96,7 +96,7 @@ class MonitoringController extends Controller
                         'longitude_bus' => "",
                         'latitude_tap' => $monitoring->latitude,
                         'longitude_tap' => $monitoring->longitude,
-                        'date' => $monitoring->created_at,
+                        'date' => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                         'date_bus' => "",
                     ]);
                 }
@@ -336,8 +336,8 @@ class MonitoringController extends Controller
     }
 
     public function listNotif(Request $request) {
-        $startDate = Carbon::now()->subDays(7);
-        $endDate = Carbon::now();
+        $startDate = date("Y-m-d", strtotime("-7 days", strtotime(date("Y-m-d", strtotime("2023-07-21")))));
+        $endDate = date("Y-m-d", strtotime("2023-07-21"));
         // Mengambil notifikasi 30 terbaru dan 7 hari terakhir dari tabel Monitoring
         $notifications = Monitoring::where('nisn', $request->nisn)->whereDate('created_at', '>=', $startDate)->whereDate('created_at', '<=', $endDate)->latest()->get();
         // Memeriksa apakah ada notifikasi
