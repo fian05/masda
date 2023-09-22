@@ -25,7 +25,7 @@ class MonitoringController extends Controller
 
     public function mapsUpdate() {
         $markers = [];
-        $today = Carbon::today()->format('Y-m-d');
+        $today = date("Y-m-d", strtotime("2023-07-21"));
         $latestBusData = MonitoringBus::where('created_at', '>', $today)->latest()->get();
         foreach ($latestBusData as $busData) {
             $bus = Bus::where('plat_nomor', $busData->plat_nomor)->first();
@@ -51,7 +51,7 @@ class MonitoringController extends Controller
     public function pelajarCek(Request $request) {
         $result = Monitoring::where('nisn', $request->nisn)->exists();
         if ($result) {
-            $today = Carbon::today()->format('Y-m-d');
+            $today = date("Y-m-d", strtotime("2023-07-21"));
             $monitoring = Monitoring::where("nisn", $request->nisn)->where('created_at', '>', $today)->latest()->first();
             $pelajar = Pelajar::findOrFail($request->nisn);
             if($monitoring->status == "in") {
@@ -138,7 +138,7 @@ class MonitoringController extends Controller
                         'status' => "Gagal",
                     ], 404);
                 } else { // Latlong tidak 0
-                    $today = Carbon::today()->format('Y-m-d');
+                    $today = date("Y-m-d", strtotime("2023-07-21"));
                     $cekStatus = Monitoring::where('nisn', $uid->nisn)->where('created_at', '>', $today)->latest()->first();
                     if(!$cekStatus) {
                         $status = "in";
@@ -249,7 +249,7 @@ class MonitoringController extends Controller
                     'status' => "Gagal",
                 ], 404);
             } else { // Latlong tidak 0
-                $today = Carbon::today()->format('Y-m-d');
+                $today = date("Y-m-d", strtotime("2023-07-21"));
                 $pelajar = Monitoring::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->latest()->get();
                 if($pelajar->count() == 0) { // Belum ada pelajar yang tap kartu hari ini
                     $sisa_pnp = $bus->jumlah_kursi; // Kursi full
