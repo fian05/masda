@@ -12,8 +12,6 @@ class Monitoring extends Model
 
     protected $table = 'monitoring';
 
-    public $timestamps = false;
-
     protected $fillable = [
         'nisn',
         'plat_nomor',

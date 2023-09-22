@@ -11,8 +11,6 @@ class MonitoringBus extends Model
 
     protected $table = 'monitoring_bus';
 
-    public $timestamps = false;
-
     protected $fillable = [
         'plat_nomor',
         'latitude',

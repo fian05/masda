@@ -170,24 +170,22 @@ class MonitoringController extends Controller
                         if($pelajar->count() == 0) { // Belum ada pelajar yang tap kartu hari ini
                             $sisa_pnp = $bus->jumlah_kursi; // Kursi full
                             $monitoringBus = MonitoringBus::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
-                            $date_string = "2023-07-21 10:41:11";
-                            $timestamp = strtotime($date_string);
                             if(!$monitoringBus) { // Belum ada monitoring bus
                                 $monitoringBus = MonitoringBus::create([
                                     "plat_nomor" => $iPlat_nomor,
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", $timestamp),
-                                    "updated_at" => date("Y-m-d H:i:s", $timestamp),
+                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                                 ]);
                             } else { // Sudah ada monitoring bus
                                 $monitoringBus->update([
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", $timestamp),
-                                    "updated_at" => date("Y-m-d H:i:s", $timestamp),
+                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                                 ]);
                             }
                         } else { // Sudah ada pelajar yang tap kartu hari ini
@@ -201,24 +199,22 @@ class MonitoringController extends Controller
                                 ->count();
                             $sisa_pnp = $bus->jumlah_kursi - ($in - $out); // Kursi kurang/tetap/tambah, ada yang tap in/out kartu
                             $monitoringBus = MonitoringBus::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
-                            $date_string = "2023-07-21 10:41:11";
-                            $timestamp = strtotime($date_string);
                             if(!$monitoringBus) { // Belum ada data sama sekali di Monitoring Bus
                                 $monitoringBus = MonitoringBus::create([
                                     "plat_nomor" => $iPlat_nomor,
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", $timestamp),
-                                    "updated_at" => date("Y-m-d H:i:s", $timestamp),
+                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                                 ]);
                             } else { // Sudah ada monitoring bus
                                 $monitoringBus->update([
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", $timestamp),
-                                    "updated_at" => date("Y-m-d H:i:s", $timestamp),
+                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                                 ]);
                             }
                         }
@@ -255,8 +251,6 @@ class MonitoringController extends Controller
             } else { // Latlong tidak 0
                 $today = Carbon::today()->format('Y-m-d');
                 $pelajar = Monitoring::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->latest()->get();
-                $date_string = "2023-07-21 10:41:11";
-                $timestamp = strtotime($date_string);
                 if($pelajar->count() == 0) { // Belum ada pelajar yang tap kartu hari ini
                     $sisa_pnp = $bus->jumlah_kursi; // Kursi full
                     $monitoringBus = MonitoringBus::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->first();
@@ -266,16 +260,16 @@ class MonitoringController extends Controller
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", $timestamp),
-                            "updated_at" => date("Y-m-d H:i:s", $timestamp),
+                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                         ]);
                     } else { // Sudah ada monitoring bus
                         $monitoringBus->update([
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", $timestamp),
-                            "updated_at" => date("Y-m-d H:i:s", $timestamp),
+                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                         ]);
                     }
                 } else { // Sudah ada pelajar yang tap kartu hari ini
@@ -295,16 +289,16 @@ class MonitoringController extends Controller
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", $timestamp),
-                            "updated_at" => date("Y-m-d H:i:s", $timestamp),
+                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                         ]);
                     } else {
                         $monitoringBus->update([
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", $timestamp),
-                            "updated_at" => date("Y-m-d H:i:s", $timestamp),
+                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                         ]);
                     }
                 }
