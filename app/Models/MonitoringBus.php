@@ -16,7 +16,5 @@ class MonitoringBus extends Model
         'latitude',
         'longitude',
         'sisa_pnp',
-        'created_at',
-        'updated_at',
     ];
 }

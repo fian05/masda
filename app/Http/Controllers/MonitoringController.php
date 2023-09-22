@@ -25,7 +25,7 @@ class MonitoringController extends Controller
 
     public function mapsUpdate() {
         $markers = [];
-        $today = date("Y-m-d", strtotime("2023-07-21"));
+        $today = Carbon::today()->format('Y-m-d');
         $latestBusData = MonitoringBus::where('created_at', '>', $today)->latest()->get();
         foreach ($latestBusData as $busData) {
             $bus = Bus::where('plat_nomor', $busData->plat_nomor)->first();
@@ -51,7 +51,7 @@ class MonitoringController extends Controller
     public function pelajarCek(Request $request) {
         $result = Monitoring::where('nisn', $request->nisn)->exists();
         if ($result) {
-            $today = date("Y-m-d", strtotime("2023-07-21"));
+            $today = Carbon::today()->format('Y-m-d');
             $monitoring = Monitoring::where("nisn", $request->nisn)->where('created_at', '>', $today)->latest()->first();
             $pelajar = Pelajar::findOrFail($request->nisn);
             if($monitoring->status == "in") {
@@ -138,7 +138,7 @@ class MonitoringController extends Controller
                         'status' => "Gagal",
                     ], 404);
                 } else { // Latlong tidak 0
-                    $today = date("Y-m-d", strtotime("2023-07-21"));
+                    $today = Carbon::today()->format('Y-m-d');
                     $cekStatus = Monitoring::where('nisn', $uid->nisn)->where('created_at', '>', $today)->latest()->first();
                     if(!$cekStatus) {
                         $status = "in";
@@ -156,8 +156,6 @@ class MonitoringController extends Controller
                         "status" => $status,
                         "latitude" => $iLatitude,
                         "longitude" => $iLongitude,
-                        "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
-                        "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                     ]);
 
                     if(!$monitorings) {
@@ -178,16 +176,12 @@ class MonitoringController extends Controller
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
-                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                                 ]);
                             } else { // Sudah ada monitoring bus
                                 $monitoringBus->update([
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
-                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                                 ]);
                             }
                         } else { // Sudah ada pelajar yang tap kartu hari ini
@@ -207,16 +201,12 @@ class MonitoringController extends Controller
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
-                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                                 ]);
                             } else { // Sudah ada monitoring bus
                                 $monitoringBus->update([
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
-                                    "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
-                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                                 ]);
                             }
                         }
@@ -251,7 +241,7 @@ class MonitoringController extends Controller
                     'status' => "Gagal",
                 ], 404);
             } else { // Latlong tidak 0
-                $today = date("Y-m-d", strtotime("2023-07-21"));
+                $today = Carbon::today()->format('Y-m-d');
                 $pelajar = Monitoring::where('plat_nomor', $iPlat_nomor)->where('created_at', '>', $today)->latest()->get();
                 if($pelajar->count() == 0) { // Belum ada pelajar yang tap kartu hari ini
                     $sisa_pnp = $bus->jumlah_kursi; // Kursi full
@@ -262,16 +252,12 @@ class MonitoringController extends Controller
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
-                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                         ]);
                     } else { // Sudah ada monitoring bus
                         $monitoringBus->update([
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
-                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                         ]);
                     }
                 } else { // Sudah ada pelajar yang tap kartu hari ini
@@ -291,16 +277,12 @@ class MonitoringController extends Controller
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
-                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                         ]);
                     } else {
                         $monitoringBus->update([
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
-                            "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
-                            "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:50:26")),
                         ]);
                     }
                 }
@@ -315,7 +297,7 @@ class MonitoringController extends Controller
 
     public function getNotif(Request $request) {
         // Mengambil notifikasi terbaru dari tabel Monitoring
-        $notification = Monitoring::where("nisn", $request->nisn)->where('created_at', '>', date("Y-m-d", strtotime("-8 seconds", strtotime(date("Y-m-d", strtotime("2023-07-21"))))))->latest()->first();
+        $notification = Monitoring::where("nisn", $request->nisn)->where('created_at', '>', Carbon::now()->subSeconds(8))->latest()->first();
         // Memeriksa apakah ada notifikasi
         if ($notification) {
             return response()->json([
@@ -336,8 +318,8 @@ class MonitoringController extends Controller
     }
 
     public function listNotif(Request $request) {
-        $startDate = date("Y-m-d", strtotime("-7 days", strtotime(date("Y-m-d", strtotime("2023-07-21")))));
-        $endDate = date("Y-m-d", strtotime("2023-07-21"));
+        $startDate = Carbon::now()->subDays(7);
+        $endDate = Carbon::now();
         // Mengambil notifikasi 30 terbaru dan 7 hari terakhir dari tabel Monitoring
         $notifications = Monitoring::where('nisn', $request->nisn)->whereDate('created_at', '>=', $startDate)->whereDate('created_at', '<=', $endDate)->latest()->get();
         // Memeriksa apakah ada notifikasi

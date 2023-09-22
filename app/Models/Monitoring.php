@@ -17,7 +17,5 @@ class Monitoring extends Model
         'status',
         'latitude',
         'longitude',
-        'created_at',
-        'updated_at',
     ];
 }
