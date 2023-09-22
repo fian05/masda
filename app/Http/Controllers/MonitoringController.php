@@ -156,6 +156,8 @@ class MonitoringController extends Controller
                         "status" => $status,
                         "latitude" => $iLatitude,
                         "longitude" => $iLongitude,
+                        "created_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                                    "updated_at" => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
                     ]);
 
                     if(!$monitorings) {
