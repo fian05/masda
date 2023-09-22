@@ -43,7 +43,7 @@ class PelajarSeeder extends Seeder
             "kode_sekolah" => "SMK3MADIUN",
             "jk" => "l",
             "nohp" => "088888888888",
-            "alamat" => "Perum Bumi Mas 1 Kota Madiun",
+            "alamat" => "Jl. Kerto Manis 2, Manisrejo, Kec. Taman, Kota Madiun, Jawa Timur 63138",
             "password" => bcrypt("12345678"),
         ]);
 
