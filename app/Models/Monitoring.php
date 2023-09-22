@@ -12,11 +12,15 @@ class Monitoring extends Model
 
     protected $table = 'monitoring';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'nisn',
         'plat_nomor',
         'status',
         'latitude',
         'longitude',
+        'created_at',
+        'updated_at',
     ];
 }

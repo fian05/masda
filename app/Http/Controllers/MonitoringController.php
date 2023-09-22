@@ -176,12 +176,16 @@ class MonitoringController extends Controller
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
+                                    "created_at" => "2023-07-21 10:41:11",
+                                    "updated_at" => "2023-07-21 10:41:11",
                                 ]);
                             } else { // Sudah ada monitoring bus
                                 $monitoringBus->update([
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
+                                    "created_at" => "2023-07-21 10:41:11",
+                                    "updated_at" => "2023-07-21 10:41:11",
                                 ]);
                             }
                         } else { // Sudah ada pelajar yang tap kartu hari ini
@@ -201,12 +205,16 @@ class MonitoringController extends Controller
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
+                                    "created_at" => "2023-07-21 10:41:11",
+                                    "updated_at" => "2023-07-21 10:41:11",
                                 ]);
                             } else { // Sudah ada monitoring bus
                                 $monitoringBus->update([
                                     "latitude" => $iLatitude,
                                     "longitude" => $iLongitude,
                                     "sisa_pnp" => $sisa_pnp,
+                                    "created_at" => "2023-07-21 10:41:11",
+                                    "updated_at" => "2023-07-21 10:41:11",
                                 ]);
                             }
                         }
@@ -277,12 +285,16 @@ class MonitoringController extends Controller
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
+                            "created_at" => "2023-07-21 10:41:11",
+                            "updated_at" => "2023-07-21 10:41:11",
                         ]);
                     } else {
                         $monitoringBus->update([
                             "latitude" => $iLatitude,
                             "longitude" => $iLongitude,
                             "sisa_pnp" => $sisa_pnp,
+                            "created_at" => "2023-07-21 10:41:11",
+                            "updated_at" => "2023-07-21 10:41:11",
                         ]);
                     }
                 }

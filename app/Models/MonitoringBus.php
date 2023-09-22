@@ -11,10 +11,14 @@ class MonitoringBus extends Model
 
     protected $table = 'monitoring_bus';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'plat_nomor',
         'latitude',
         'longitude',
         'sisa_pnp',
+        'created_at',
+        'updated_at',
     ];
 }
