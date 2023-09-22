@@ -36,7 +36,7 @@ class MonitoringController extends Controller
                 'longitude' => $busData->longitude,
                 'sisa_pnp' => $busData->sisa_pnp,
                 'jml_pnp' => $jmlPenumpang,
-                'date' => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                'date' => $busData->updated_at,
                 'rute_awal' => $bus->rute_awal,
                 'rute_akhir' => $bus->rute_akhir,
                 'jumlah_kursi' => $bus->jumlah_kursi,
@@ -72,7 +72,7 @@ class MonitoringController extends Controller
                             'longitude_bus' => $lng,
                             'latitude_tap' => $monitoring->latitude,
                             'longitude_tap' => $monitoring->longitude,
-                            'date' => date("Y-m-d H:i:s", strtotime("2023-07-21 10:41:11")),
+                            'date' => $monitoring->created_at,
                             'date_bus' => $getMonitoringBus->updated_at,
                             'jml_pnp' => $jmlPenumpang,
                         ]);
